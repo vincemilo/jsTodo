@@ -1,0 +1,16 @@
+{
+  "name": "jstodo",
+  "version": "1.0.0",
+  "description": "To Do App using Webpack",
+  "private": "true",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "webpack"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "webpack": "^5.88.2",
+    "webpack-cli": "^5.1.4"
+  }
+}
