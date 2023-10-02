@@ -1,10 +1,6 @@
-function component() {
-    const element = document.createElement('div');
-  
-    // Lodash, currently included via a script, is required for this line to work
-    element.innerHTML = 'Hello webpack';
-  
-    return element;
-  }
-  
-document.body.appendChild(component());
+import header from "./header";
+import './style.css';
+
+const content = document.getElementById('content');
+
+content.appendChild(header());
