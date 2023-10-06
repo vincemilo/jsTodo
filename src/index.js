@@ -1,4 +1,5 @@
 import header from "./header";
+import newTask from "./newTask";
 import './style.css';
 
 const content = document.getElementById('content');
@@ -7,6 +8,7 @@ content.appendChild(header());
 
 const main = document.createElement('main');
 content.appendChild(main);
+main.appendChild(newTask());
 
 const navButtons = document.querySelector('.nav-buttons');
 
