@@ -26,17 +26,30 @@ export default function newTask() {
     form.method = 'post';
 
     
-    const title = document.createElement('div');
-    const date = document.createElement('div');
-    const project = document.createElement('div');
-    const description = document.createElement('div');
+    // const title = document.createElement('div');
+    // const date = document.createElement('div');
+    // const project = document.createElement('div');
+    // const description = document.createElement('div');
 
     //let task = [title, date, project, description];
 
     let taskProps = ['title', 'date', 'projects', 'description'];
 
     for (let task in taskProps) {
-        console.log(`${taskProps[task]}`)
+        let name = taskProps[task];
+        let div = document.createElement('div');
+        let label = document.createElement('label');
+        let input = document.createElement('input');
+
+        div.className = name;
+        label.htmlFor = name;
+        input.type = 'text';
+        label.innerText = name;
+
+        div.appendChild(label);
+        div.appendChild(input);
+        form.appendChild(div);
+        //console.log(`${taskProps[task]}`)
     };
 
 
