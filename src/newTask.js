@@ -1,4 +1,5 @@
 export default function newTask() {
+    const main = document.createElement('main');
     let tasks = [];
 
     class Task {
@@ -53,7 +54,21 @@ export default function newTask() {
     };
 
 
-    console.log(tasks[0].info);
+    const button = document.createElement('div'); 
+    const submit = document.createElement('button');
+    const cancel = document.createElement('button');
+    
+    button.className = 'button';
+    cancel.className = 'button';
+    submit.type = 'button';
+    cancel.type = 'button';
+    submit.innerText = 'Submit';
+    cancel.innerText = 'Cancel';
 
-    return form;
+    button.appendChild(submit);
+    button.appendChild(cancel);
+    form.appendChild(button);
+
+    main.appendChild(form);
+    return main;
 }

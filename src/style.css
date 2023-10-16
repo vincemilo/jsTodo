@@ -24,3 +24,12 @@
     cursor: pointer;
     padding: 16px;
   }
+
+main {
+  background-position: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  flex: 1;
+};

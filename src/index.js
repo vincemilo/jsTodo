@@ -8,7 +8,6 @@ content.appendChild(header());
 
 const main = document.createElement('main');
 content.appendChild(main);
-main.appendChild(newTask());
 
 const navButtons = document.querySelector('.nav-buttons');
 
@@ -19,7 +18,6 @@ navButtons.addEventListener('click', (e) => {
         main.textContent = 'projects';
         //content.replaceChild(home(), main);
     } else if (button === 'new btn'){
-        main.textContent = 'new task';
-        //content.replaceChild(menu(), main);
+        content.replaceChild(newTask(), main);
     };
 });
