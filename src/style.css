@@ -32,4 +32,15 @@ main {
   justify-content: center;
   flex-direction: column;
   flex: 1;
-};
+}
+
+.new-task {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+}
+
+.button {
+    display: flex;
+    justify-content: space-between;
+}

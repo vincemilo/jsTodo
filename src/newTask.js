@@ -34,7 +34,7 @@ export default function newTask() {
 
     //let task = [title, date, project, description];
 
-    let taskProps = ['title', 'date', 'projects', 'description'];
+    let taskProps = ['Title', 'Date', 'Projects', 'Description'];
 
     for (let task in taskProps) {
         let name = taskProps[task];
@@ -44,11 +44,22 @@ export default function newTask() {
 
         div.className = name;
         label.htmlFor = name;
-        input.type = 'text';
+        
+        if (name === 'Description'){
+            let descriptionDiv = document.createElement('div');
+            let textarea = document.createElement('textarea');
+            div.appendChild(label);
+            descriptionDiv.appendChild(textarea);
+            div.appendChild(descriptionDiv);
+
+        } else {
+            input.type = 'text';
+            div.appendChild(label);
+            div.appendChild(input);
+        };
+        
         label.innerText = name;
 
-        div.appendChild(label);
-        div.appendChild(input);
         form.appendChild(div);
         //console.log(`${taskProps[task]}`)
     };
@@ -58,8 +69,7 @@ export default function newTask() {
     const submit = document.createElement('button');
     const cancel = document.createElement('button');
     
-    button.className = 'button';
-    cancel.className = 'button';
+    button.className = 'button'
     submit.type = 'button';
     cancel.type = 'button';
     submit.innerText = 'Submit';
@@ -69,6 +79,7 @@ export default function newTask() {
     button.appendChild(cancel);
     form.appendChild(button);
 
+    form.className = 'new-task';
     main.appendChild(form);
     return main;
 }
