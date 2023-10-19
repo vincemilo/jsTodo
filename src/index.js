@@ -8,6 +8,7 @@ content.appendChild(header());
 
 const main = document.createElement('main');
 content.appendChild(main);
+content.replaceChild(newTask(), main);
 
 const navButtons = document.querySelector('.nav-buttons');
 
@@ -18,6 +19,24 @@ navButtons.addEventListener('click', (e) => {
         main.textContent = 'projects';
         //content.replaceChild(home(), main);
     } else if (button === 'new btn'){
-        content.replaceChild(newTask(), main);
+        //content.replaceChild(newTask(), main);
+        main.textContent = 'new task';
     };
+});
+
+const taskForm = document.querySelector('.new-task');
+const buttons = document.querySelector('.buttons');
+
+buttons.addEventListener('click', (e) => {
+    let currentMain = document.querySelector('main');
+    let blankMain = () => document.createElement('main');
+    if (e.target.id === 'submit'){
+        const data = new FormData(taskForm);
+        console.log(data);
+    } else if (e.target.id === 'cancel'){
+        console.log(currentMain);
+        console.log(blankMain());
+        //content.replaceChild(blankMain(), currentMain);
+    };
+    e.preventDefault();
 });

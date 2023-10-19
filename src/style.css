@@ -40,7 +40,7 @@ main {
     flex-direction: column;
 }
 
-.button {
+.buttons {
     display: flex;
     justify-content: space-between;
 }
