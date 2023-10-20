@@ -1,27 +1,9 @@
 export default function newTask() {
     const main = document.createElement('main');
-    let tasks = [];
 
-    class Task {
-        constructor(title, date, project, description) {
-            this.title = title;
-            this.date = date;
-            this.project = project;
-            this.description = description;
-        };
+    //const randomTask = new Task('Lunch', '01/01/1991', 'generic project', 'blah');
 
-        get info() {
-            return `${this.title} on ${this.date} in ${this.project}: ${this.description}`;  
-        };
-    };
-
-    function addTaskToProject(task){
-        tasks.push(task);
-    };
-
-    const randomTask = new Task('Lunch', '01/01/1991', 'generic project', 'blah');
-
-    addTaskToProject(randomTask);
+    //addTaskToProject(randomTask);
 
     const form = document.createElement('form');
     form.method = 'post';
@@ -85,4 +67,4 @@ export default function newTask() {
     form.className = 'new-task';
     main.appendChild(form);
     return main;
-}
+};
