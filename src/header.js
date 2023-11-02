@@ -22,7 +22,7 @@ export default function header() {
 
     headerDiv.appendChild(navButtons);
 
-    logo.innerHTML = 'To Do App';
+    logo.innerText = 'To Do App';
     projectsDiv.innerText = 'Projects';
     newDiv.innerText = 'New Task';
   

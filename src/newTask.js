@@ -1,3 +1,6 @@
+import getProjects from "./getProjects";
+import setProjects from "./setProjects";
+
 export default function newTask() {
     const main = document.createElement('main');
 
@@ -33,7 +36,28 @@ export default function newTask() {
             div.appendChild(label);
             descriptionDiv.appendChild(textarea);
             div.appendChild(descriptionDiv);
-
+        } else if (name === 'Project'){
+            let projectDiv = document.createElement('div');
+            let select = document.createElement('select');
+            select.name = name;
+            setProjects('blah2');
+            let projects = getProjects();
+            for (let project in projects){
+                let option = document.createElement('option');
+                option.text = projects[project];
+                select.options.add(option);
+            };
+            div.appendChild(label);
+            projectDiv.appendChild(select);
+            div.appendChild(projectDiv);
+        } else if (name === 'Date'){
+            let dateDiv = document.createElement('div');
+            let input = document.createElement('input');
+            input.type = 'date';
+            input.name = name;
+            div.appendChild(label);
+            dateDiv.appendChild(input);
+            div.appendChild(dateDiv);
         } else {
             let inputDiv = document.createElement('div');
             let input = document.createElement('input');

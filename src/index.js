@@ -41,10 +41,9 @@ buttons.addEventListener('click', (e) => {
             task[entry[0].toLowerCase()] = entry[1];
         };
         addTaskToProject(task);
-        console.log(tasks);
+        console.log(tasks[0].info);
     } else if (e.target.id === 'cancel'){
         let main = document.querySelector('main');
-        console.log(main);
         main.innerText = '';
         //console.log(currentMain);
         //console.log(blankMain());
