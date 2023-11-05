@@ -1,24 +1,9 @@
-import getProjects from "./getProjects";
-import setProjects from "./setProjects";
+import { projects } from "./projects";
 
 export default function newTask() {
     const main = document.createElement('main');
-
-    //const randomTask = new Task('Lunch', '01/01/1991', 'generic project', 'blah');
-
-    //addTaskToProject(randomTask);
-
     const form = document.createElement('form');
     form.method = 'post';
-
-    
-    // const title = document.createElement('div');
-    // const date = document.createElement('div');
-    // const project = document.createElement('div');
-    // const description = document.createElement('div');
-
-    //let task = [title, date, project, description];
-
     let taskProps = ['Title', 'Date', 'Project', 'Description'];
 
     for (let task in taskProps) {
@@ -40,11 +25,11 @@ export default function newTask() {
             let projectDiv = document.createElement('div');
             let select = document.createElement('select');
             select.name = name;
-            setProjects('blah2');
-            let projects = getProjects();
-            for (let project in projects){
+            projects.setProjects('blah2');
+            let list = projects.getProjects();
+            for (let project in list){
                 let option = document.createElement('option');
-                option.text = projects[project];
+                option.text = list[project];
                 select.options.add(option);
             };
             div.appendChild(label);
