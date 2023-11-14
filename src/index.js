@@ -1,12 +1,14 @@
 import header from "./header";
 import newTask from "./newTask";
 import Task from "./task";
+import { projects } from './projects'
 import './style.css';
 
-let tasks = [];
+let projectList = projects.getProjects();
 
-function addTaskToProject(task){
-    tasks.push(task);
+function addTaskToProject(projName, task){
+    const result = projectList.find(o => o.name === projName);
+    result.assignTask(task);
 };
 
 const content = document.getElementById('content');
@@ -40,8 +42,8 @@ buttons.addEventListener('click', (e) => {
         for (const entry of data) {
             task[entry[0].toLowerCase()] = entry[1];
         };
-        addTaskToProject(task);
-        console.log(tasks[0].info);
+        //console.log(task.project);
+        addTaskToProject(task.project, task);
     } else if (e.target.id === 'cancel'){
         let main = document.querySelector('main');
         main.innerText = '';

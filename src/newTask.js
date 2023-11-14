@@ -18,6 +18,7 @@ export default function newTask() {
             let descriptionDiv = document.createElement('div');
             let textarea = document.createElement('textarea');
             textarea.name = name;
+            textarea.id = name;
             div.appendChild(label);
             descriptionDiv.appendChild(textarea);
             div.appendChild(descriptionDiv);
@@ -25,11 +26,11 @@ export default function newTask() {
             let projectDiv = document.createElement('div');
             let select = document.createElement('select');
             select.name = name;
-            projects.setProjects('blah2');
+            select.id = name;
             let list = projects.getProjects();
             for (let project in list){
                 let option = document.createElement('option');
-                option.text = list[project];
+                option.text = list[project].name;
                 select.options.add(option);
             };
             div.appendChild(label);
@@ -40,6 +41,7 @@ export default function newTask() {
             let input = document.createElement('input');
             input.type = 'date';
             input.name = name;
+            input.id = name;
             div.appendChild(label);
             dateDiv.appendChild(input);
             div.appendChild(dateDiv);
@@ -48,6 +50,7 @@ export default function newTask() {
             let input = document.createElement('input');
             input.type = 'text';
             input.name = name;
+            input.id = name;
             div.appendChild(label);
             inputDiv.appendChild(input);
             div.appendChild(inputDiv);
