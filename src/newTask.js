@@ -4,14 +4,14 @@ export default function newTask() {
     const main = document.createElement('main');
     const form = document.createElement('form');
     form.method = 'post';
-    let taskProps = ['Title', 'Date', 'Project', 'Description'];
+    let taskProps = ['Title', 'Date', 'Project', 'Add To New Project', 'Description'];
 
     for (let task in taskProps) {
         let name = taskProps[task];
         let div = document.createElement('div');
         let label = document.createElement('label');
 
-        div.className = name;
+        div.className = name.replace(/\s/g, '-').toLowerCase();
         label.htmlFor = name;
         
         if (name === 'Description'){
@@ -36,6 +36,16 @@ export default function newTask() {
             div.appendChild(label);
             projectDiv.appendChild(select);
             div.appendChild(projectDiv);
+        } else if (name === 'Add To New Project'){
+            let inputDiv = document.createElement('div');
+            let input = document.createElement('input');
+            input.type = 'text';
+            input.name = name;
+            input.id = name;
+            input.disabled = true;
+            div.appendChild(label);
+            inputDiv.appendChild(input);
+            div.appendChild(inputDiv);
         } else if (name === 'Date'){
             let dateDiv = document.createElement('div');
             let input = document.createElement('input');

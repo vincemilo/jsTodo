@@ -8,7 +8,8 @@ let projectList = projects.getProjects();
 
 function addTaskToProject(projName, task){
     const result = projectList.find(o => o.name === projName);
-    result.assignTask(task);
+    //result.assignTask(task);
+    console.log(result.tasks[0]);
 };
 
 const content = document.getElementById('content');
@@ -26,12 +27,12 @@ navButtons.addEventListener('click', (e) => {
         //content.replaceChild(home(), main);
     } else if (button === 'new btn'){
         //content.replaceChild(newTask(), main);
-        main.textContent = 'new task';
     };
 });
 
 const taskForm = document.querySelector('.new-task');
 const buttons = document.querySelector('.buttons');
+const project = document.querySelector('.project');
 
 buttons.addEventListener('click', (e) => {
     //let currentMain = document.querySelector('main');
@@ -39,14 +40,16 @@ buttons.addEventListener('click', (e) => {
     if (e.target.id === 'submit'){
         const data = new FormData(taskForm);
         const task = new Task;
+        //console.log(data);
         for (const entry of data) {
-            task[entry[0].toLowerCase()] = entry[1];
+            //console.log(entry[0].replace(/\s/g, ''));
+            task[entry[0].replace(/\s/g, '').toLowerCase()] = entry[1];
         };
-        //console.log(task.project);
-        addTaskToProject(task.project, task);
+        console.log(task);
+        //addTaskToProject(task.project, task);
     } else if (e.target.id === 'cancel'){
         let main = document.querySelector('main');
-        main.innerText = '';
+        console.log('cancel');
         //console.log(currentMain);
         //console.log(blankMain());
         //content.replaceChild(blankMain(), currentMain);
@@ -54,6 +57,14 @@ buttons.addEventListener('click', (e) => {
     e.preventDefault();
 });
 
-//const randomTask = new Task('Lunch', '01/01/1991', 'generic project', 'blah');
-//addTaskToProject(randomTask);
+project.addEventListener('change', (e) => {
+    const input = document.getElementById('Add To New Project');
+    if (e.target.value === "Add to New Project"){
+        input.disabled = false;
+        console.log(input);
+    } else {
+        input.innerText = '';
+        input.disabled = true;
+    };
+})
 
