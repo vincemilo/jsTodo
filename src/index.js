@@ -32,18 +32,21 @@ navButtons.addEventListener('click', (e) => {
 
 const taskForm = document.querySelector('.new-task');
 const buttons = document.querySelector('.buttons');
-const project = document.querySelector('.project');
+const project = document.querySelector('.add-to-existing-project');
 
 buttons.addEventListener('click', (e) => {
     //let currentMain = document.querySelector('main');
     //let blankMain = () => document.createElement('main');
     if (e.target.id === 'submit'){
+        if (taskForm.checkValidity() === false) {
+            taskForm.reportValidity();
+            return;
+        };
         const data = new FormData(taskForm);
         const task = new Task;
         //console.log(data);
         for (const entry of data) {
-            //console.log(entry[0].replace(/\s/g, ''));
-            task[entry[0].replace(/\s/g, '').toLowerCase()] = entry[1];
+            task[entry[0].replace(/\s/g, '-').toLowerCase()] = entry[1];
         };
         console.log(task);
         //addTaskToProject(task.project, task);
@@ -58,9 +61,11 @@ buttons.addEventListener('click', (e) => {
 });
 
 project.addEventListener('change', (e) => {
-    const input = document.getElementById('Add To New Project');
-    if (e.target.value === "Add to New Project"){
+    const input = document.getElementById('add-to-new-project');
+    console.log(e.target.value);
+    if (e.target.value === "Add To New Project"){
         input.disabled = false;
+        input.required = true;
         console.log(input);
     } else {
         input.innerText = '';

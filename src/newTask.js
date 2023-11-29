@@ -4,33 +4,41 @@ export default function newTask() {
     const main = document.createElement('main');
     const form = document.createElement('form');
     form.method = 'post';
-    let taskProps = ['Title', 'Date', 'Project', 'Add To New Project', 'Description'];
+    let taskProps = ['Title', 'Date', 'Add To Existing Project', 'Add To New Project', 'Description'];
 
     for (let task in taskProps) {
-        let name = taskProps[task];
-        let div = document.createElement('div');
-        let label = document.createElement('label');
+        const name = taskProps[task];
+        const lowercase = name.replace(/\s/g, '-').toLowerCase();
+        const div = document.createElement('div');
+        const label = document.createElement('label');
 
-        div.className = name.replace(/\s/g, '-').toLowerCase();
-        label.htmlFor = name;
+        div.className = lowercase;
+        label.htmlFor = lowercase;
         
         if (name === 'Description'){
             let descriptionDiv = document.createElement('div');
             let textarea = document.createElement('textarea');
             textarea.name = name;
-            textarea.id = name;
+            textarea.id = lowercase;
+            textarea.required = true;
             div.appendChild(label);
             descriptionDiv.appendChild(textarea);
             div.appendChild(descriptionDiv);
-        } else if (name === 'Project'){
+        } else if (name === 'Add To Existing Project'){
             let projectDiv = document.createElement('div');
             let select = document.createElement('select');
-            select.name = name;
-            select.id = name;
+            select.name = 'project';
+            select.id = lowercase;
+            select.required = true;
             let list = projects.getProjects();
             for (let project in list){
                 let option = document.createElement('option');
                 option.text = list[project].name;
+                if (list[project].name === "Select Project"){
+                    option.value = '';
+                } else {
+                    option.value = list[project].name;
+                };
                 select.options.add(option);
             };
             div.appendChild(label);
@@ -40,8 +48,8 @@ export default function newTask() {
             let inputDiv = document.createElement('div');
             let input = document.createElement('input');
             input.type = 'text';
-            input.name = name;
-            input.id = name;
+            input.name = 'project';
+            input.id = lowercase;
             input.disabled = true;
             div.appendChild(label);
             inputDiv.appendChild(input);
@@ -51,7 +59,8 @@ export default function newTask() {
             let input = document.createElement('input');
             input.type = 'date';
             input.name = name;
-            input.id = name;
+            input.id = lowercase;
+            input.required = true;
             div.appendChild(label);
             dateDiv.appendChild(input);
             div.appendChild(dateDiv);
@@ -60,7 +69,8 @@ export default function newTask() {
             let input = document.createElement('input');
             input.type = 'text';
             input.name = name;
-            input.id = name;
+            input.id = lowercase;
+            input.required = true;
             div.appendChild(label);
             inputDiv.appendChild(input);
             div.appendChild(inputDiv);
