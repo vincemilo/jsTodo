@@ -1,7 +1,6 @@
 import { projects } from "./projects";
 
 export default function newTask() {
-    const main = document.createElement('main');
     const form = document.createElement('form');
     form.method = 'post';
     let taskProps = ['Title', 'Date', 'Add To Existing Project', 'Add To New Project', 'Description'];
@@ -97,6 +96,5 @@ export default function newTask() {
     form.appendChild(button);
 
     form.className = 'new-task';
-    main.appendChild(form);
-    return main;
+    return form;
 };
