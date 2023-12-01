@@ -1,12 +1,8 @@
 import header from "./header";
 import newTask from "./newTask";
-import Task from "./task";
 import buttonListeners from "./buttonListeners";
-import addTaskToProject from "./addTaskToProject";
+import { projects } from "./projects";
 import './style.css';
-
-addTaskToProject('blah', new Task('as', '10/20/2016', 'asdsa', 'descrip'));
-addTaskToProject('blah', new Task('ads', '10/20/2026', 'asdsad', 'descriptionn'));
 
 const content = document.getElementById('content');
 

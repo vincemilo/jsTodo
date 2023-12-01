@@ -1,3 +1,6 @@
+import Task from "./task";
+import addTaskToProject from "./addTaskToProject";
+
 export default function buttonListeners(){
     const buttons = document.querySelector('.buttons');
     buttons.addEventListener('click', (e) => {
@@ -16,7 +19,7 @@ export default function buttonListeners(){
         for (const entry of data) {
             task[entry[0].replace(/\s/g, '-').toLowerCase()] = entry[1];
         };
-        console.log(task);
+        //console.log(task.Project);
         addTaskToProject(task.project, task);
     } else if (e.target.id === 'cancel'){
         //console.log('test');

@@ -3,7 +3,7 @@ import { projects } from "./projects";
 export default function newTask() {
     const form = document.createElement('form');
     form.method = 'post';
-    let taskProps = ['Title', 'Date', 'Add To Existing Project', 'Add To New Project', 'Description'];
+    let taskProps = ['Title', 'Due Date', 'Add To Existing Project', 'Add To New Project', 'High Priority', 'Description'];
 
     for (let task in taskProps) {
         const name = taskProps[task];
@@ -19,7 +19,6 @@ export default function newTask() {
             let textarea = document.createElement('textarea');
             textarea.name = name;
             textarea.id = lowercase;
-            textarea.required = true;
             div.appendChild(label);
             descriptionDiv.appendChild(textarea);
             div.appendChild(descriptionDiv);
@@ -33,11 +32,7 @@ export default function newTask() {
             for (let project in list){
                 let option = document.createElement('option');
                 option.text = list[project].name;
-                if (list[project].name === "Select Project"){
-                    option.value = '';
-                } else {
-                    option.value = list[project].name;
-                };
+                option.value = list[project].name;
                 select.options.add(option);
             };
             div.appendChild(label);
@@ -53,7 +48,7 @@ export default function newTask() {
             div.appendChild(label);
             inputDiv.appendChild(input);
             div.appendChild(inputDiv);
-        } else if (name === 'Date'){
+        } else if (name === 'Due Date'){
             let dateDiv = document.createElement('div');
             let input = document.createElement('input');
             input.type = 'date';
@@ -63,6 +58,15 @@ export default function newTask() {
             div.appendChild(label);
             dateDiv.appendChild(input);
             div.appendChild(dateDiv);
+        } else if (name === "High Priority"){
+            let priorityDiv = document.createElement('div');
+            let checkbox = document.createElement('input');
+            checkbox.type = 'checkbox';
+            checkbox.name = name;
+            checkbox.id = lowercase;
+            div.appendChild(label);
+            priorityDiv.appendChild(checkbox);
+            div.appendChild(priorityDiv);
         } else {
             let inputDiv = document.createElement('div');
             let input = document.createElement('input');
