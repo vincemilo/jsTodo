@@ -43,3 +43,10 @@
     display: flex;
     justify-content: space-between;
 }
+
+.project {
+    background-color: aqua;
+    padding: 16px;
+    border-radius: 8px;
+    cursor: pointer;
+}

@@ -1,12 +1,13 @@
 export default class Task {
-    constructor(title, date, project, description) {
+    constructor(title, date, project, priority, description) {
         this.title = title;
         this.date = date;
         this.project = project;
+        this.priority = priority;
         this.description = description;
     };
 
     get info() {
-        return `${this.title} on ${this.date} in ${this.project}: ${this.description}`;  
+        return [this.title, this.date, this.project, this.priority, this.description];  
     };
 };

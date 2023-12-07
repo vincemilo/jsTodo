@@ -10,8 +10,6 @@ export default function addTaskToProject(projName, task){
         project.assignTask(task);
         projects.setProjects(project);
     } else {
-        //console.log(result);
         result.assignTask(task);
-        console.log(result.info);
     };
 };

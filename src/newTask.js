@@ -62,7 +62,7 @@ export default function newTask() {
             let priorityDiv = document.createElement('div');
             let checkbox = document.createElement('input');
             checkbox.type = 'checkbox';
-            checkbox.name = name;
+            checkbox.name = 'priority';
             checkbox.id = lowercase;
             div.appendChild(label);
             priorityDiv.appendChild(checkbox);
