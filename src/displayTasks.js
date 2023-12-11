@@ -1,19 +1,22 @@
+import taskDetails from "./taskDetails";
+
 export default function displayTasks(tasks){
-    console.log(tasks);
+    //console.log(tasks);
     const tasksDiv = document.createElement('div');
+    tasksDiv.className = 'tasks';
+    tasksDiv.id = tasks[0]['project'];
     for (let task of tasks){
-        console.log(task);
         const taskDiv = document.createElement('div');
-        const entries = Object.entries(task);
-        for (let [key, value] of entries) {
-            const keyDiv = document.createElement('div');
-            const valueDiv = document.createElement('div');
-            keyDiv.innerText = key;
-            valueDiv.innerText = value;
-            taskDiv.appendChild(keyDiv);
-            taskDiv.appendChild(valueDiv);
-            tasksDiv.appendChild(taskDiv);
-        };
+        taskDiv.className = 'task';
+        taskDiv.dataset.id = task['title'];
+        taskDiv.addEventListener('click', taskDetails(task));
+        const titleDiv = document.createElement('div');
+        const dateDiv = document.createElement('div');
+        titleDiv.innerText = task['title'];
+        dateDiv.innerText = task['date'];
+        taskDiv.appendChild(titleDiv);
+        taskDiv.appendChild(dateDiv);
+        tasksDiv.appendChild(taskDiv);
     };
     return tasksDiv;
 }

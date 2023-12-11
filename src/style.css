@@ -50,3 +50,12 @@
     border-radius: 8px;
     cursor: pointer;
 }
+
+.task {
+    background-color: white;
+    display: flex;
+}
+
+.collapse {
+    visibility: collapse;
+}
