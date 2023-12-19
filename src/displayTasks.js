@@ -9,7 +9,7 @@ export default function displayTasks(tasks){
         const taskDiv = document.createElement('div');
         taskDiv.className = 'task';
         taskDiv.dataset.id = task['title'];
-        taskDiv.addEventListener('click', taskDetails(task));
+        taskDiv.addEventListener('click', () => taskDetails(task, taskDiv));
         const titleDiv = document.createElement('div');
         const dateDiv = document.createElement('div');
         titleDiv.innerText = task['title'];

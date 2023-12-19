@@ -1,13 +1,15 @@
-export default function taskDetails(task){
-    //console.log(task);
-    // const entries = Object.entries(task);
-    // for (let [key, value] of entries) {
-    //     const keyDiv = document.createElement('div');
-    //     const valueDiv = document.createElement('div');
-    //     keyDiv.innerText = key;
-    //     valueDiv.innerText = value;
-    //     taskDiv.appendChild(keyDiv);
-    //     taskDiv.appendChild(valueDiv);
-    //     tasksDiv.appendChild(taskDiv);
-    // };    
+export default function taskDetails(task, taskDiv){
+    console.log(task);
+    //console.log(taskDiv.className);
+    const descriptionDiv = document.createElement('div');
+    descriptionDiv.innerText = task['description'];
+    if (taskDiv.className === 'task'){
+        taskDiv.classList.toggle('toggle');
+        taskDiv.appendChild(descriptionDiv);
+    } else if (taskDiv.className === 'task toggle'){
+        taskDiv.lastChild.remove();
+        taskDiv.classList.toggle('toggle');
+    };
+    
+    
 };

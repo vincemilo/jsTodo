@@ -52,7 +52,7 @@ export default function newTask() {
             let dateDiv = document.createElement('div');
             let input = document.createElement('input');
             input.type = 'date';
-            input.name = name;
+            input.name = 'date';
             input.id = lowercase;
             input.required = true;
             div.appendChild(label);

@@ -13,8 +13,8 @@ const main = document.createElement('main');
 content.appendChild(header());
 content.appendChild(main);
 
-const task = new Task('blah', '10/10/2020', 'Uncategorized', 'on', 'blah');
-const task2 = new Task('blahdsf', '10/12/2020', 'Uncategorized', 'off', 'blah34');
+const task = new Task('blah', '10/10/2020', 'Uncategorized', 'descrip');
+const task2 = new Task('blahdsf', '10/12/2020', 'Uncategorized', 'descrup2');
 
 addTaskToProject('Uncategorized', task);
 addTaskToProject('Uncategorized', task2);

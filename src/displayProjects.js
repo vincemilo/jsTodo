@@ -16,15 +16,21 @@ export default function displayProjects(){
             proj.className = 'project';
             proj.innerText = project.name;
             projContainer.appendChild(proj);
+            const tasks = displayTasks(project.tasks);
             projContainer.addEventListener('click', (e) => {
                 //console.log(e.target.className);
                 if (e.target.className === 'project'){
-                projContainer.appendChild(displayTasks(project.tasks));
+                    projContainer.appendChild(tasks);
+                    proj.classList.add('toggle');
+                } else if (e.target.className === 'project toggle'){
+                    proj.nextSibling.remove();
+                    proj.classList.remove('toggle');
                 } else {
-                    console.log(e.target.parentElement.parentElement);
-                    //const tasks = document.getElementById(project.name);
-                    //projContainer.removeChild(tasks);
+                    console.log(e.target);
                 }
+                // toggle++;
+                // toggle = toggle % 2;
+                //console.log(toggle);
             });
             projectsDiv.appendChild(projContainer);    
         };
