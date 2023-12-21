@@ -51,11 +51,15 @@
     cursor: pointer;
 }
 
+.tasks {
+    max-width: 100px;
+}
+
 .task {
     background-color: white;
-    display: grid;
-    grid-template-columns: 50px 50px;
-    gap: 8px;
+    display: flex;
+    cursor: pointer;
+    gap: 0 8px;
 }
 
 .collapse {
