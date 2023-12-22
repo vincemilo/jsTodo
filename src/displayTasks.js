@@ -4,11 +4,14 @@ export default function displayTasks(tasks){
     //console.log(tasks);
     const tasksDiv = document.createElement('div');
     tasksDiv.className = 'tasks';
-    tasksDiv.id = tasks[0]['project'];
     for (let task of tasks){
+        const taskContainer = document.createElement('div');
+        taskContainer.id = `${task['project']}-${task['title']}`;
         const taskDiv = document.createElement('div');
         taskDiv.className = 'task';
-        taskDiv.dataset.id = task['title'];
+        if (task.priority === 'on'){
+            taskContainer.classList.add('priority');
+        }
         taskDiv.addEventListener('click', () => taskDetails(task, taskDiv));
         const titleDiv = document.createElement('div');
         const dateDiv = document.createElement('div');
@@ -16,7 +19,8 @@ export default function displayTasks(tasks){
         dateDiv.innerText = task['date'];
         taskDiv.appendChild(titleDiv);
         taskDiv.appendChild(dateDiv);
-        tasksDiv.appendChild(taskDiv);
+        taskContainer.appendChild(taskDiv);
+        tasksDiv.appendChild(taskContainer);
     };
     return tasksDiv;
 }

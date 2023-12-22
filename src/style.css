@@ -45,21 +45,28 @@
 }
 
 .project {
-    background-color: aqua;
+    border: 1px solid black;
     padding: 16px;
     border-radius: 8px;
     cursor: pointer;
 }
 
-.tasks {
-    max-width: 100px;
+.project-container {
+    width: 200px;
 }
 
 .task {
     background-color: white;
     display: flex;
+    justify-content: space-between;
+    align-items: center;
     cursor: pointer;
     gap: 0 8px;
+}
+
+.priority {
+    border: 2px solid red;
+    border-radius: 4px;
 }
 
 .collapse {

@@ -12,6 +12,7 @@ export default function displayProjects(){
             continue;
         } else {
             const projContainer = document.createElement('div');
+            projContainer.className = 'project-container';
             const proj = document.createElement('div');
             proj.className = 'project';
             proj.innerText = project.name;
