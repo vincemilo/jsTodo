@@ -27,7 +27,7 @@ export default function displayProjects(){
                     proj.nextSibling.remove();
                     proj.classList.remove('toggle');
                 } else {
-                    console.log(e.target);
+                    //console.log(e.target);
                 }
                 // toggle++;
                 // toggle = toggle % 2;

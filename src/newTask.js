@@ -1,6 +1,6 @@
 import { projects } from "./projects";
 
-export default function newTask() {
+export default function newTask(title = '', dueDate = '', project = '', priority = 'on', description = '') {
     const form = document.createElement('form');
     form.method = 'post';
     let taskProps = ['Title', 'Due Date', 'Add To Existing Project', 'Add To New Project', 'High Priority', 'Description'];
@@ -19,10 +19,14 @@ export default function newTask() {
             let textarea = document.createElement('textarea');
             textarea.name = name;
             textarea.id = lowercase;
+            textarea.value = description;
             div.appendChild(label);
             descriptionDiv.appendChild(textarea);
             div.appendChild(descriptionDiv);
         } else if (name === 'Add To Existing Project'){
+            if (project){
+                continue;
+            }
             let projectDiv = document.createElement('div');
             let select = document.createElement('select');
             select.name = 'project';
@@ -39,6 +43,9 @@ export default function newTask() {
             projectDiv.appendChild(select);
             div.appendChild(projectDiv);
         } else if (name === 'Add To New Project'){
+            if (project){
+                continue;
+            }
             let inputDiv = document.createElement('div');
             let input = document.createElement('input');
             input.type = 'text';
@@ -54,6 +61,7 @@ export default function newTask() {
             input.type = 'date';
             input.name = 'date';
             input.id = lowercase;
+            input.value = dueDate;
             input.required = true;
             div.appendChild(label);
             dateDiv.appendChild(input);
@@ -64,6 +72,7 @@ export default function newTask() {
             checkbox.type = 'checkbox';
             checkbox.name = 'priority';
             checkbox.id = lowercase;
+            checkbox.value = priority;
             div.appendChild(label);
             priorityDiv.appendChild(checkbox);
             div.appendChild(priorityDiv);
@@ -71,6 +80,7 @@ export default function newTask() {
             let inputDiv = document.createElement('div');
             let input = document.createElement('input');
             input.type = 'text';
+            input.value = title;
             input.name = name;
             input.id = lowercase;
             input.required = true;
