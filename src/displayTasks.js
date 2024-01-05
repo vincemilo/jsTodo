@@ -1,12 +1,11 @@
 import taskDetails from "./taskDetails";
 
 export default function displayTasks(tasks){
-    //console.log(tasks);
+    console.log(tasks);
     const tasksDiv = document.createElement('div');
     tasksDiv.className = 'tasks';
     for (let task of tasks){
         const taskContainer = document.createElement('div');
-        taskContainer.id = `${task['project']}-${task['title']}`;
         const taskDiv = document.createElement('div');
         taskDiv.className = 'task';
         if (task.priority === 'on'){

@@ -1,6 +1,6 @@
 import { projects } from "./projects";
 
-export default function newTask(title = '', dueDate = '', project = '', priority = 'on', description = '') {
+export default function newTask(title = '', dueDate = '', project = '', priority = 'off', description = '') {
     const form = document.createElement('form');
     form.method = 'post';
     let taskProps = ['Title', 'Due Date', 'Add To Existing Project', 'Add To New Project', 'High Priority', 'Description'];
@@ -72,7 +72,9 @@ export default function newTask(title = '', dueDate = '', project = '', priority
             checkbox.type = 'checkbox';
             checkbox.name = 'priority';
             checkbox.id = lowercase;
-            checkbox.value = priority;
+            if (priority === 'on'){
+                checkbox.checked = true;
+            }
             div.appendChild(label);
             priorityDiv.appendChild(checkbox);
             div.appendChild(priorityDiv);
