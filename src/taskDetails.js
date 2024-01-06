@@ -1,3 +1,4 @@
+import editBtnListeners from "./editBtnListeners";
 import newTask from "./newTask";
 
 export default function taskDetails(task, taskDiv){
@@ -6,7 +7,10 @@ export default function taskDetails(task, taskDiv){
     descriptionDiv.classList.add('task-descrip');
     descriptionDiv.innerText = task['description'];
     const taskContainer = taskDiv.parentElement;
-    if (taskDiv.className === 'task'){
+    if (taskDiv.classList.contains('toggle')){
+        taskDiv.nextSibling.remove();
+        taskDiv.classList.toggle('toggle');
+    } else if (taskDiv.classList.contains('task')){
         //console.log(taskContainer);
         const btns = document.createElement('div');
         const editBtn = document.createElement('button');
@@ -14,9 +18,12 @@ export default function taskDetails(task, taskDiv){
         editBtn.innerText = 'Edit';
         delBtn.innerText = 'Delete';
         btns.classList.add('buttons');
-        btns.addEventListener('click', (e)=> {
+        btns.addEventListener('click', (e) => {
             if (e.target.innerText === 'Edit'){
-                taskContainer.replaceWith(newTask(task['title'], task['date'], task['project'], task['priority'], task['description']));
+                taskContainer.innerText = '';
+                let editForm = newTask(task['title'], task['date'], task['project'], task['priority'], task['description']);
+                taskContainer.appendChild(editForm);
+                editBtnListeners(taskContainer.lastChild, task)
                 console.log('Edit');
             } else if ((e.target.innerText === 'Delete')){
                 taskContainer.remove();
@@ -27,10 +34,6 @@ export default function taskDetails(task, taskDiv){
         btns.appendChild(delBtn);
         descriptionDiv.appendChild(btns);
         taskContainer.appendChild(descriptionDiv);
-        taskDiv.classList.toggle('toggle');
-
-    } else if (taskDiv.className === 'task toggle'){
-        taskDiv.nextSibling.remove();
         taskDiv.classList.toggle('toggle');
     };
     
