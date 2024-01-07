@@ -29,9 +29,6 @@ export default function displayProjects(){
                 } else {
                     //console.log(e.target);
                 }
-                // toggle++;
-                // toggle = toggle % 2;
-                //console.log(toggle);
             });
             projectsDiv.appendChild(projContainer);    
         };

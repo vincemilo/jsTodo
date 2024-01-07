@@ -1,5 +1,6 @@
 import editBtnListeners from "./editBtnListeners";
 import newTask from "./newTask";
+import { projects } from "./projects";
 
 export default function taskDetails(task, taskDiv){
     //console.log(taskDiv.className);
@@ -26,6 +27,10 @@ export default function taskDetails(task, taskDiv){
                 editBtnListeners(taskContainer.lastChild, task)
                 console.log('Edit');
             } else if ((e.target.innerText === 'Delete')){
+                const project = projects.getProjects().find(( { name }) => name === task.project);
+                const taskIndex = project.tasks.findIndex(( { id }) => id === task.id);
+                project.tasks.splice(taskIndex, 1);
+                console.log(project.tasks);
                 taskContainer.remove();
                 console.log('Delete');
             };

@@ -64,6 +64,11 @@
     gap: 0 8px;
 }
 
+.tasks {
+    width: 190px;
+    margin-left: 4px;
+}
+
 .priority {
     border: 2px solid red;
     border-radius: 4px;
