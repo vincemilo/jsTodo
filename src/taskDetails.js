@@ -20,19 +20,19 @@ export default function taskDetails(task, taskDiv){
         delBtn.innerText = 'Delete';
         btns.classList.add('buttons');
         btns.addEventListener('click', (e) => {
+            const project = projects.getProjects().find(( { name }) => name === task.project);
+            const taskIndex = project.tasks.findIndex(( { id }) => id === task.id);
             if (e.target.innerText === 'Edit'){
                 taskContainer.innerText = '';
                 let editForm = newTask(task['title'], task['date'], task['project'], task['priority'], task['description']);
                 taskContainer.appendChild(editForm);
                 editBtnListeners(taskContainer.lastChild, task)
-                console.log('Edit');
+                //console.log('Edit');
             } else if ((e.target.innerText === 'Delete')){
-                const project = projects.getProjects().find(( { name }) => name === task.project);
-                const taskIndex = project.tasks.findIndex(( { id }) => id === task.id);
                 project.tasks.splice(taskIndex, 1);
-                console.log(project.tasks);
+                //console.log(project.tasks);
                 taskContainer.remove();
-                console.log('Delete');
+                //console.log('Delete');
             };
         });
         btns.appendChild(editBtn);

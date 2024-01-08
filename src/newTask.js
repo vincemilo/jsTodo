@@ -75,6 +75,7 @@ export default function newTask(title = '', dueDate = '', project = '', priority
             if (priority === 'on'){
                 checkbox.checked = true;
             }
+            //console.log(checkbox.checked);
             div.appendChild(label);
             priorityDiv.appendChild(checkbox);
             div.appendChild(priorityDiv);
@@ -93,7 +94,6 @@ export default function newTask(title = '', dueDate = '', project = '', priority
         
         label.innerText = name;
         form.appendChild(div);
-        //console.log(`${taskProps[task]}`)
     };
 
     const button = document.createElement('div'); 
