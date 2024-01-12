@@ -1,3 +1,5 @@
+import { projects } from './projects';
+
 export default function populateProj(project){
     const proj = document.createElement('div');
     proj.className = 'project';
@@ -12,6 +14,7 @@ export default function populateProj(project){
         if (e.target.innerText === 'Edit'){
             proj.innerText = '';
             const form = document.createElement('form');
+            form.id = 'title';
             form.method = 'post';
             const input = document.createElement('input');
             input.type = 'text'
@@ -42,7 +45,12 @@ export default function populateProj(project){
                 };
             })
         } else if (e.target.innerText === 'Delete'){
-            alert('Are you sure you want to delete this project?')
+            if (confirm('Are you sure you want to delete this project and all associated tasks?')){
+                projects.delProject(project.id);
+                proj.parentElement.remove();
+            } else {
+                console.log('cancel');
+            };
         };
     });
     btns.appendChild(editBtn);

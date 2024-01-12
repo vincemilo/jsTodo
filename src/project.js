@@ -1,7 +1,11 @@
+let i = 0;
+
 export default class Project {
-    constructor(name, tasks = []) {
+    constructor(name, tasks = [], id = i) {
         this.name = name;
         this.tasks = tasks;
+        this.id = id;
+        i++;
     };
 
     get info() {
