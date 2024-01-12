@@ -1,14 +1,16 @@
 import header from "./header";
-import newTask from "./newTask";
-import buttonListeners from "./buttonListeners";
-//import { projects } from "./projects";
 import displayProjects from "./displayProjects";
 import addTaskToProject from "./addTaskToProject";
 import Task from "./task";
 import './style.css';
+import newBtn from "./newBtn";
 
 const content = document.getElementById('content');
 const main = document.createElement('main');
+const projectsDiv = document.createElement('div');
+projectsDiv.id = 'projects';
+projectsDiv.innerText = 'Projects';
+main.appendChild(projectsDiv);
 
 content.appendChild(header());
 content.appendChild(main);
@@ -22,26 +24,6 @@ addTaskToProject('Uncategorized', task);
 addTaskToProject('New Project', task2);
 addTaskToProject('Uncategorized', task3);
 addTaskToProject('Uncategorized', task4);
+
 displayProjects();
-
-const navButtons = document.querySelector('.nav-buttons');
-
-navButtons.addEventListener('click', (e) => {
-    // let main = document.querySelector('main');
-    let button = e.target.className;
-    if (button === 'projects btn'){
-        main.innerText = '';
-        displayProjects();
-    } else if (button === 'new btn'){
-        const taskForm = document.querySelector('.new-task');
-        if (taskForm === null) {
-            main.innerText = '';
-            main.appendChild(newTask());
-            buttonListeners();
-        } else {
-            main.innerText = '';
-            main.appendChild(newTask());
-            buttonListeners();
-        };
-    };
-});
+newBtn();

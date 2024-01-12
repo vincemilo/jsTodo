@@ -1,5 +1,7 @@
 import Task from "./task";
 import addTaskToProject from "./addTaskToProject";
+import newBtn from "./newBtn";
+import populateTask from "./populateTask";
 
 export default function buttonListeners(){
     const buttons = document.querySelector('.buttons');
@@ -21,10 +23,13 @@ export default function buttonListeners(){
         };
         //console.log(task.Project);
         addTaskToProject(task.project, task);
+        console.log(task);
+        //populateTask(task, )
     } else if (e.target.id === 'cancel'){
         //console.log('test');
         //console.log(taskForm);
         taskForm.remove();
+        newBtn();
     };
         e.preventDefault();
     });
