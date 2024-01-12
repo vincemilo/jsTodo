@@ -1,6 +1,6 @@
 import { projects } from "./projects";
 import displayTasks from "./displayTasks";
-import taskDetails from "./taskDetails";
+import populateProj from "./populateProj";
 
 export default function displayProjects(){
     const main = document.querySelector('main');
@@ -13,9 +13,7 @@ export default function displayProjects(){
         } else {
             const projContainer = document.createElement('div');
             projContainer.className = 'project-container';
-            const proj = document.createElement('div');
-            proj.className = 'project';
-            proj.innerText = project.name;
+            const proj = populateProj(project);
             projContainer.appendChild(proj);
             const tasks = displayTasks(project.tasks);
             projContainer.addEventListener('click', (e) => {
