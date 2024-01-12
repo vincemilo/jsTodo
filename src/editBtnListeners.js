@@ -1,10 +1,6 @@
-// import Task from "./task";
-// import addTaskToProject from "./addTaskToProject";
-import taskDetails from "./taskDetails";
 import populateTask from "./populateTask";
 
 export default function editBtnListeners(form, task){
-    //console.log(form);
     form.addEventListener('submit', (e) => {
         e.preventDefault();
         if (e.submitter.id === 'submit'){
@@ -21,10 +17,10 @@ export default function editBtnListeners(form, task){
                 console.log(task);
             };
             //console.log(task.priority);
-            populateTask(form, task);
+            form.replaceWith(populateTask(task, form.parentElement));
             //console.log('submit');
         } else {
-            populateTask(form, task);
+            form.replaceWith(populateTask(task, form.parentElement));
             //console.log('cancel');
         }
         //console.log(e.submitter.id);

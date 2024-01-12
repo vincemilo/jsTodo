@@ -1,13 +1,13 @@
 import taskDetails from "./taskDetails";
 
-export default function populateTask(form, task){
-    const taskDiv = form;
+export default function populateTask(task, parent){
+    const taskDiv = document.createElement('div');
     taskDiv.className = 'task';
     taskDiv.innerText = '';
     if (task.priority === 'on'){ 
-        taskDiv.parentElement.classList.add('priority'); 
+        parent.classList.add('priority'); 
     } else if (task.priority === 'off'){
-        taskDiv.parentElement.classList.remove('priority');
+        parent.classList.remove('priority');
     }
     taskDiv.addEventListener('click', () => taskDetails(task, taskDiv));
     const titleDiv = document.createElement('div');

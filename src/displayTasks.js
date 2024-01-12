@@ -1,4 +1,4 @@
-import taskDetails from "./taskDetails";
+import populateTask from "./populateTask";
 
 export default function displayTasks(tasks){
     //console.log(tasks);
@@ -7,18 +7,7 @@ export default function displayTasks(tasks){
     for (let task of tasks){
         const taskContainer = document.createElement('div');
         taskContainer.className = 'task-container';
-        const taskDiv = document.createElement('div');
-        taskDiv.className = 'task';
-        if (task.priority === 'on'){
-            taskContainer.classList.add('priority');
-        }
-        taskDiv.addEventListener('click', () => taskDetails(task, taskDiv));
-        const titleDiv = document.createElement('div');
-        const dateDiv = document.createElement('div');
-        titleDiv.innerText = task['title'];
-        dateDiv.innerText = task['date'];
-        taskDiv.appendChild(titleDiv);
-        taskDiv.appendChild(dateDiv);
+        const taskDiv = populateTask(task, taskContainer);
         taskContainer.appendChild(taskDiv);
         tasksDiv.appendChild(taskContainer);
     };
