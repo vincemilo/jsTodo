@@ -12,7 +12,7 @@
     padding: 16px;
 }
 
-.projects, main {
+.projects {
     font-size: 1rem;
     display: flex;
     flex-direction: column;

@@ -32,6 +32,6 @@ export default function displayProjects(){
             });
             projectsDiv.appendChild(projContainer);    
         };
-        main.appendChild(projectsDiv);
     };
-}
+    main.appendChild(projectsDiv);
+};

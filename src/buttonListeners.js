@@ -35,8 +35,6 @@ export default function buttonListeners(){
         newTaskDisplay.parentElement.appendChild(tasks);
         newTaskDisplay.classList.add('toggle');
     } else if (e.target.id === 'cancel'){
-        //console.log('test');
-        //console.log(taskForm);
         taskForm.remove();
         newBtn();
     };
@@ -44,9 +42,12 @@ export default function buttonListeners(){
     });
     
     const project = document.querySelector('.add-to-existing-project');
-
+    const input = document.getElementById('add-to-new-project');
+    if (projects.getProjects().length === 1){
+        input.disabled = false;
+        input.required = true;
+    };
     project.addEventListener('change', (e) => {
-        const input = document.getElementById('add-to-new-project');
         //console.log(e.target.value);
         if (e.target.value === "Add To New Project"){
             input.disabled = false;
