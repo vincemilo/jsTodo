@@ -5,5 +5,6 @@ export const projects = (function () {
     const getProjects = () => list;
     const setProjects = (params) => list.push(params);
     const delProject = (index) => list.splice(index, 1);
-    return { getProjects, setProjects, delProject };
+    const getProject = (index) => list[index];
+    return { getProjects, setProjects, delProject, getProject };
 })();

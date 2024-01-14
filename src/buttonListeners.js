@@ -1,7 +1,9 @@
 import Task from "./task";
 import addTaskToProject from "./addTaskToProject";
 import newBtn from "./newBtn";
-import populateTask from "./populateTask";
+import displayProjects from "./displayProjects";
+import { projects } from "./projects";
+import displayTasks from "./displayTasks";
 
 export default function buttonListeners(){
     const buttons = document.querySelector('.buttons');
@@ -22,9 +24,16 @@ export default function buttonListeners(){
             task[entry[0].replace(/\s/g, '-').toLowerCase()] = entry[1];
         };
         //console.log(task.Project);
-        addTaskToProject(task.project, task);
-        console.log(task);
-        //populateTask(task, )
+        const projId = addTaskToProject(task.project, task);
+        const main = document.querySelector('main');
+        main.innerText = '';
+        displayProjects();
+        newBtn();
+        const project = projects.getProject(projId);
+        const tasks = displayTasks(project.tasks);
+        const newTaskDisplay = document.getElementById(projId);
+        newTaskDisplay.parentElement.appendChild(tasks);
+        newTaskDisplay.classList.add('toggle');
     } else if (e.target.id === 'cancel'){
         //console.log('test');
         //console.log(taskForm);

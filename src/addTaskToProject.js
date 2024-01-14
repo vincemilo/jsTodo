@@ -9,8 +9,10 @@ export default function addTaskToProject(projName, task){
         const project = new Project(projName);
         project.assignTask(task);
         projects.setProjects(project);
+        return project.id;
     } else {
         result.assignTask(task);
+        return result.id;
     };
-    console.log(result);
+    //console.log(projects.getProjects());
 };

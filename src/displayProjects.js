@@ -5,6 +5,7 @@ import populateProj from "./populateProj";
 export default function displayProjects(){
     const main = document.querySelector('main');
     const projectsDiv = document.createElement('div');
+    projectsDiv.innerText = 'Projects';
     const projectList = projects.getProjects();
     projectsDiv.className = 'projects';
     for (let project of projectList){
@@ -14,6 +15,7 @@ export default function displayProjects(){
             const projContainer = document.createElement('div');
             projContainer.className = 'project-container';
             const proj = populateProj(project);
+            proj.id = project.id;
             projContainer.appendChild(proj);
             const tasks = displayTasks(project.tasks);
             projContainer.addEventListener('click', (e) => {
