@@ -9,12 +9,12 @@ export default function editBtnListeners(form, task){
                 return;
             } else {
                 const data = new FormData(form);
-                console.log(task);
+                //console.log(task);
                 task.priority = 'off';
                 for (const entry of data) {
                     task[entry[0].replace(/\s/g, '-').toLowerCase()] = entry[1];
                 };
-                console.log(task);
+                //console.log(task);
             };
             //console.log(task.priority);
             form.replaceWith(populateTask(task, form.parentElement));

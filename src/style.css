@@ -50,6 +50,10 @@
     padding: 16px;
     border-radius: 8px;
     cursor: pointer;
+    display: flex;
+    gap: 8px;
+    align-items: center;
+    justify-content: space-between;
 }
 
 .project-container {
@@ -77,4 +81,12 @@
 
 .collapse {
     visibility: collapse;
+}
+
+.edit-btn, .del-btn {
+    max-width: 1rem;
+}
+
+footer {
+    margin-top: auto;
 }

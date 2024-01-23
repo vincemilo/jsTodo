@@ -1,17 +1,21 @@
 import { projects } from './projects';
+import Edit from './img/edit.png';
+import Delete from './img/delete.png';
 
 export default function populateProj(project){
     const proj = document.createElement('div');
     proj.className = 'project';
     proj.innerText = project.name;
-    const editBtn = document.createElement('button');
-    const delBtn = document.createElement('button');
-    editBtn.innerText = 'Edit';
-    delBtn.innerText = 'Delete';
+    const editIcon = new Image();
+    editIcon.src = Edit;
+    editIcon.className = 'edit-btn';
+    const delIcon = new Image();
+    delIcon.className = 'del-btn';
+    delIcon.src = Delete;
     const btns = document.createElement('div');
     btns.addEventListener('click', (e)=> {
-        //console.log(e.target.innerText)
-        if (e.target.innerText === 'Edit'){
+        console.log(e.target.className)
+        if (e.target.className === 'edit-btn'){
             proj.innerText = '';
             const form = document.createElement('form');
             form.id = 'title';
@@ -44,7 +48,7 @@ export default function populateProj(project){
                     proj.replaceWith(populateProj(project));
                 };
             })
-        } else if (e.target.innerText === 'Delete'){
+        } else if (e.target.className === 'del-btn'){
             if (confirm('Are you sure you want to delete this project and all associated tasks?')){
                 projects.delProject(project.id);
                 proj.parentElement.remove();
@@ -53,8 +57,8 @@ export default function populateProj(project){
             };
         };
     });
-    btns.appendChild(editBtn);
-    btns.appendChild(delBtn);
+    btns.appendChild(editIcon);
+    btns.appendChild(delIcon);
     proj.appendChild(btns);
     return proj;    
 };
