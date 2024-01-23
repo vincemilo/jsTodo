@@ -1,16 +1,18 @@
 import newTask from "./newTask";
 import buttonListeners from "./buttonListeners";
+import Add from "./img/add.png"
 
 export default function newBtn(){
-    const newBtn = document.createElement('button');
-    newBtn.innerText = "New Task";
+    const newIcon = new Image();
+    newIcon.src = Add;
+    newIcon.className = 'new-btn';
     const main = document.querySelector('.projects');
-    main.appendChild(newBtn);
+    main.appendChild(newIcon);
     
-    newBtn.addEventListener('click', () => {
+    newIcon.addEventListener('click', () => {
         main.appendChild(newTask());
         buttonListeners();
-        newBtn.remove();
+        newIcon.remove();
     });
-    return newBtn;    
+    return newIcon;    
 }

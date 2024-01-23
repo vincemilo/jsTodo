@@ -13,8 +13,9 @@ export default function populateProj(project){
     delIcon.className = 'del-btn';
     delIcon.src = Delete;
     const btns = document.createElement('div');
+    btns.className = 'icon-btns';
     btns.addEventListener('click', (e)=> {
-        console.log(e.target.className)
+        //console.log(e.target.className)
         if (e.target.className === 'edit-btn'){
             proj.innerText = '';
             const form = document.createElement('form');
@@ -27,6 +28,7 @@ export default function populateProj(project){
             const btns = document.createElement('div');
             const submit = document.createElement('button');
             const cancel = document.createElement('button');
+            btns.className = 'buttons';
             submit.innerText = 'Submit';
             cancel.innerText = 'Cancel';
             btns.appendChild(submit);

@@ -6,7 +6,7 @@ import { projects } from "./projects";
 import displayTasks from "./displayTasks";
 
 export default function buttonListeners(){
-    const buttons = document.querySelector('.buttons');
+    const buttons = document.getElementById('new-task');
     buttons.addEventListener('click', (e) => {
     const taskForm = document.querySelector('.new-task');
     //console.log(taskForm);

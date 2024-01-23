@@ -24,9 +24,10 @@
 .btn {
     cursor: pointer;
     padding: 16px;
-  }
+}
 
 #content {
+  min-height: 100vh;
   background-position: center;
   display: flex;
   align-items: center;
@@ -54,6 +55,7 @@
     gap: 8px;
     align-items: center;
     justify-content: space-between;
+    margin-bottom: 4px;
 }
 
 .project-container {
@@ -72,6 +74,7 @@
 .tasks {
     width: 190px;
     margin-left: 4px;
+    margin-bottom: 4px;
 }
 
 .priority {
@@ -83,10 +86,25 @@
     visibility: collapse;
 }
 
-.edit-btn, .del-btn {
+.edit-btn, .del-btn, .new-btn {
     max-width: 1rem;
+    cursor: pointer; 
 }
 
-footer {
+footer{
     margin-top: auto;
+    font-size: 0.8rem;
+}
+
+.icon-btns {
+    display: flex;
+    gap: 4px;
+}
+
+input, select, textarea {
+    margin-bottom: 4px;
+}
+
+button {
+    cursor: pointer;
 }

@@ -100,7 +100,8 @@ export default function newTask(title = '', dueDate = '', project = '', priority
     const submit = document.createElement('button');
     const cancel = document.createElement('button');
     
-    button.className = 'buttons'
+    button.className = 'buttons';
+    button.id = 'new-task';
     submit.type = 'submit';
     submit.id = 'submit';
     cancel.id = 'cancel';
