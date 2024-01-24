@@ -1,6 +1,7 @@
 import { projects } from './projects';
 import Edit from './img/edit.png';
 import Delete from './img/delete.png';
+import reset from './reset';
 
 export default function populateProj(project){
     const proj = document.createElement('div');
@@ -44,10 +45,10 @@ export default function populateProj(project){
                         return;
                     } else {
                         project.name = input.value;
-                        proj.replaceWith(populateProj(project));
+                        reset();
                     };
                 } else {
-                    proj.replaceWith(populateProj(project));
+                    reset();
                 };
             })
         } else if (e.target.className === 'del-btn'){

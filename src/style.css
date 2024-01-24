@@ -13,12 +13,11 @@
 }
 
 .projects {
-    font-size: 1rem;
+    
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    font-size: 1rem;
 }
 
 .btn {
@@ -27,7 +26,6 @@
 }
 
 #content {
-  min-height: 100vh;
   background-position: center;
   display: flex;
   align-items: center;
@@ -59,20 +57,20 @@
 }
 
 .project-container {
-    width: 200px;
+    width: 80vw;
 }
 
 .task {
-    background-color: white;
     display: flex;
     justify-content: space-between;
     align-items: center;
     cursor: pointer;
     gap: 0 8px;
+    padding: 4px;
 }
 
 .tasks {
-    width: 190px;
+    width: 75vw;
     margin-left: 4px;
     margin-bottom: 4px;
 }
@@ -87,24 +85,48 @@
 }
 
 .edit-btn, .del-btn, .new-btn {
-    max-width: 1rem;
+    max-width: 1.2rem;
     cursor: pointer; 
 }
 
 footer{
-    margin-top: auto;
+    margin-top: 600px;
     font-size: 0.8rem;
 }
 
 .icon-btns {
     display: flex;
-    gap: 4px;
+    gap: 4px 0;
 }
 
 input, select, textarea {
-    margin-bottom: 4px;
+    padding: 8px;
+    margin: 4px;
+    width: 50vw;
 }
 
 button {
     cursor: pointer;
+    background-color: rgb(30, 95, 218);
+    border: none;
+    color: white;
+    padding: 5px 22px;
+    text-align: center;
+    text-decoration: none;
+    font-size: small;
+    border-radius: 4px;
+}
+
+.high-priority {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#high-priority {
+    width: 100%;
+}
+
+#add-to-existing-project {
+    width: 98%;
 }
