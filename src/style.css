@@ -13,7 +13,6 @@
 }
 
 .projects {
-    
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -26,11 +25,15 @@
 }
 
 #content {
-  background-position: center;
+  height: 100vh;
   display: flex;
   align-items: center;
   justify-content: center;
   flex-direction: column;
+}
+
+#wrapper {
+    flex: 1;
 }
 
 .new-task {
@@ -89,14 +92,17 @@
     cursor: pointer; 
 }
 
+.new-btn {
+    margin-top: 16px;
+}
+
 footer{
-    margin-top: 600px;
     font-size: 0.8rem;
 }
 
 .icon-btns {
     display: flex;
-    gap: 4px 0;
+    gap: 8px
 }
 
 input, select, textarea {
@@ -129,4 +135,18 @@ button {
 
 #add-to-existing-project {
     width: 98%;
+}
+
+.task-descrip {
+    padding: 4px;
+}
+
+@media only screen and (orientation: portrait) {
+    .projects, input, select, textarea, button {
+        font-size: 2rem;
+    }
+
+    .edit-btn, .del-btn, .new-btn {
+        max-width: 2rem;
+    }
 }
