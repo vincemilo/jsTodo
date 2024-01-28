@@ -13,7 +13,7 @@ To Do App using Webpack
 
 - Logic separated by module
 
-- Using local storage to save data
+- Using localStorage to save data
 
 ##Process
 
@@ -23,3 +23,8 @@ To Do App using Webpack
 
 - Felt clunky on two separate columns so condensed UI into a single column.
 
+- Was getting a bug where localStorage wasn't allowing use of a Project method until I realized I was just populating the project list with the hash values rather than an actual Project object so updated projects.setProjects() accordingly
+
+###To Do
+
+- Better UI/more mobile friendly

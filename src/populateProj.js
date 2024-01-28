@@ -33,8 +33,8 @@ export default function populateProj(project){
             btns.className = 'buttons';
             submit.innerText = 'Submit';
             cancel.innerText = 'Cancel';
-            btns.appendChild(submit);
             btns.appendChild(cancel);
+            btns.appendChild(submit);
             form.appendChild(input);
             form.appendChild(btns);
             proj.appendChild(form);

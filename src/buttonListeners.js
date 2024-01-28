@@ -31,10 +31,12 @@ export default function buttonListeners(){
         const newTaskDisplay = document.getElementById(projId);
         newTaskDisplay.parentElement.appendChild(tasks);
         newTaskDisplay.classList.add('toggle');
-    } else if (e.target.id === 'cancel'){
-        taskForm.remove();
-        newBtn();
-    };
+        } else if (e.target.id === 'cancel'){
+            if (confirm('Are you sure you want to cancel?')){
+                taskForm.remove();
+                newBtn();
+            };
+        };
         e.preventDefault();
     });
     
