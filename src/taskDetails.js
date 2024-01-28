@@ -26,7 +26,7 @@ export default function taskDetails(task, taskDiv){
                 taskContainer.innerText = '';
                 let editForm = newTask(task['title'], task['date'], task['project'], task['priority'], task['description']);
                 taskContainer.appendChild(editForm);
-                editBtnListeners(taskContainer.lastChild, task)
+                editBtnListeners(taskContainer.lastChild, task, project)
                 //console.log('Edit');
             } else if ((e.target.innerText === 'Delete')){
                 project.tasks.splice(taskIndex, 1);

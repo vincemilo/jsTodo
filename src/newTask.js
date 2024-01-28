@@ -108,8 +108,8 @@ export default function newTask(title = '', dueDate = '', project = '', priority
     submit.innerText = 'Submit';
     cancel.innerText = 'Cancel';
 
-    button.appendChild(submit);
     button.appendChild(cancel);
+    button.appendChild(submit);
     form.appendChild(button);
 
     form.className = 'new-task';

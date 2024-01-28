@@ -1,7 +1,6 @@
 import Task from "./task";
 import addTaskToProject from "./addTaskToProject";
 import newBtn from "./newBtn";
-import displayProjects from "./displayProjects";
 import { projects } from "./projects";
 import displayTasks from "./displayTasks";
 import reset from "./reset";
@@ -27,10 +26,6 @@ export default function buttonListeners(){
         //console.log(task.Project);
         const projId = addTaskToProject(task.project, task);
         reset();
-        // const main = document.querySelector('main');
-        // main.innerText = '';
-        // displayProjects();
-        // newBtn();
         const project = projects.getProject(projId);
         const tasks = displayTasks(project.tasks);
         const newTaskDisplay = document.getElementById(projId);

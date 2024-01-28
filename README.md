@@ -13,10 +13,13 @@ To Do App using Webpack
 
 - Logic separated by module
 
+- Using local storage to save data
+
 ##Process
 
 - I first created the new task form element and worked on sending data to a new task object. This task object then needed to be assigned to a project object so the display could be populated by the objects themselves. 
 
 - Ran into difficulty with finding the correct object ID in the case of duplicate tasks so created a UID system by just adding an increment counter to the objects. Not sure if this is best practices but did the job.
 
-- Felt clunky on two separate columns so condensed into a single column.
+- Felt clunky on two separate columns so condensed UI into a single column.
+

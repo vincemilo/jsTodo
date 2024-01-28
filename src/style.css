@@ -141,7 +141,7 @@ button {
     padding: 4px;
 }
 
-@media only screen and (orientation: portrait) {
+/* @media only screen and (orientation: portrait) {
     .projects, input, select, textarea, button {
         font-size: 2rem;
     }
@@ -149,4 +149,4 @@ button {
     .edit-btn, .del-btn, .new-btn {
         max-width: 2rem;
     }
-}
+} */

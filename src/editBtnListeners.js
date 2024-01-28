@@ -1,6 +1,7 @@
 import populateTask from "./populateTask";
+import { processData } from "./processData";
 
-export default function editBtnListeners(form, task){
+export default function editBtnListeners(form, task, project){
     form.addEventListener('submit', (e) => {
         e.preventDefault();
         if (e.submitter.id === 'submit'){
@@ -16,9 +17,8 @@ export default function editBtnListeners(form, task){
                 };
                 //console.log(task);
             };
-            //console.log(task.priority);
+            processData.setData(project);
             form.replaceWith(populateTask(task, form.parentElement));
-            //console.log('submit');
         } else {
             form.replaceWith(populateTask(task, form.parentElement));
             //console.log('cancel');

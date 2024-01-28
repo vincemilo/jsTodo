@@ -2,6 +2,7 @@ import { projects } from './projects';
 import Edit from './img/edit.png';
 import Delete from './img/delete.png';
 import reset from './reset';
+import { processData } from './processData';
 
 export default function populateProj(project){
     const proj = document.createElement('div');
@@ -45,6 +46,7 @@ export default function populateProj(project){
                         return;
                     } else {
                         project.name = input.value;
+                        processData.setData(project);
                         reset();
                     };
                 } else {
@@ -55,6 +57,7 @@ export default function populateProj(project){
             if (confirm('Are you sure you want to delete this project and all associated tasks?')){
                 projects.delProject(project.id);
                 proj.parentElement.remove();
+                processData.delData(project);
             } else {
                 console.log('cancel');
             };
