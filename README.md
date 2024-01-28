@@ -15,7 +15,7 @@ To Do App using Webpack
 
 - Using localStorage to save data
 
-##Process
+## Process
 
 - I first created the new task form element and worked on sending data to a new task object. This task object then needed to be assigned to a project object so the display could be populated by the objects themselves. 
 
@@ -25,6 +25,6 @@ To Do App using Webpack
 
 - Was getting a bug where localStorage wasn't allowing use of a Project method until I realized I was just populating the project list with the hash values rather than an actual Project object so updated projects.setProjects() accordingly
 
-###To Do
+### To Do
 
 - Better UI/more mobile friendly
