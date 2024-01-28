@@ -28,3 +28,5 @@ To Do App using Webpack
 ### To Do
 
 - Better UI/more mobile friendly
+
+- Better UI for deleting projects, validating forms, etc.
